@@ -1,0 +1,563 @@
+:root {
+  --page-bg: #0b1030; /* deep indigo */
+  --page-surface: #11152f;
+  --text-strong: #f5f5f7;
+  --text-muted: #9a9fb3;
+  --accent: #7b1e3c; /* burgundy red against indigo */
+  --accent-soft: rgba(123, 30, 60, 0.18);
+  --modal-bg: #11131c;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html.page {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+.page__body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-strong);
+  position: relative;
+}
+
+.page-header {
+  padding: 1.75rem 8vw 0.75rem;
+  position: relative;
+  z-index: 8; /* ensure header text sits above tech cloud */
+}
+
+.page-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+}
+
+.page-header__tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0 0 0.25rem;
+}
+
+.page-header__name {
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.page-header__meta {
+  text-align: right;
+}
+
+.page-header__role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.15rem;
+}
+
+.page-header__location {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.page-main {
+  padding: 1.5rem 0 3rem;
+  position: relative;
+  z-index: 8; /* ensure main text sits above tech cloud */
+}
+
+.word-canvas {
+  position: relative;
+  margin: 0 auto;
+  width: min(1120px, 92vw);
+  height: min(620px, 80vh);
+  max-height: 75vh;
+}
+
+.tech-cloud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6; /* highest layer, but placed in gaps and follows scroll */
+}
+
+
+.tech-cloud__badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background-color: rgba(6, 7, 12, 0.96); /* near-black chip against indigo */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: transform 260ms ease-out, opacity 260ms ease-out;
+}
+
+.tech-cloud__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tech-cloud__badge--react {
+  top: 6%;
+  left: 32%;
+}
+
+.tech-cloud__badge--vue {
+  top: 18%;
+  right: 6%;
+}
+
+.tech-cloud__badge--tailwind {
+  top: 46%;
+  left: 4%;
+}
+
+.tech-cloud__badge--html {
+  top: 58%;
+  right: 8%;
+}
+
+.tech-cloud__badge--css {
+  top: 76%;
+  left: 10%;
+}
+
+.tech-cloud__badge--js {
+  top: 30%;
+  left: 42%;
+}
+
+.tech-cloud__badge--ts {
+  top: 68%;
+  right: 22%;
+}
+
+.tech-cloud__badge--github {
+  top: 8%;
+  right: 26%;
+}
+
+.tech-cloud__badge--gitlab {
+  bottom: 8%;
+  right: 6%;
+}
+
+.tech-cloud__badge--jira {
+  bottom: 14%;
+  left: 22%;
+}
+
+.tech-cloud__badge--figma {
+  top: 40%;
+  right: 30%;
+}
+
+.word-canvas__photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(360px, 60vw);
+  height: calc(min(360px, 60vw) * 1.1);
+  border-radius: 0;
+  overflow: hidden;
+  background-color: var(--page-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.65);
+  z-index: 1;
+}
+
+.word-canvas__photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+}
+
+.word {
+  position: absolute;
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  transform-origin: center;
+  transition: transform 180ms ease-out, text-shadow 180ms ease-out,
+    letter-spacing 180ms ease-out;
+  z-index: 10; /* keep titles above tech icons */
+}
+
+.word__label {
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+  text-transform: uppercase;
+  color: var(--text-strong);
+  text-align: left;
+  line-height: 1.05;
+  max-width: 14ch;
+  word-break: break-word;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--accent);
+  border-radius: 0;
+  text-decoration: none;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.12);
+}
+
+.word:hover,
+.word:focus-visible {
+  transform: scale(1.05);
+  outline: none;
+}
+
+.word:hover .word__label,
+.word:focus-visible .word__label {
+  text-shadow: 0.02em 0.04em 0 rgba(0, 0, 0, 0.18);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.22em;
+}
+
+.word--work {
+  top: 8%;
+  left: 2%;
+  transform: rotate(-7deg);
+}
+
+.word--skills {
+  top: 35%;
+  right: 4%;
+  transform: rotate(6deg);
+}
+
+.word--education {
+  bottom: 6%;
+  left: 8%;
+  transform: rotate(4deg);
+}
+
+.word--interests {
+  bottom: 14%;
+  right: 14%;
+  transform: rotate(-9deg);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-out;
+  z-index: 20;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.modal__clickout {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.modal__dialog {
+  position: relative;
+  max-width: 640px;
+  margin: 8vh auto;
+  background: var(--modal-bg);
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.75rem;
+}
+
+.modal__title {
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background-color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, transform 140ms ease-out,
+    border-color 140ms ease-out;
+}
+
+.modal__close:hover,
+.modal__close:focus-visible {
+  background-color: var(--accent-soft);
+  border-color: rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.modal__body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.modal__dialog--work .modal__title,
+.modal__dialog--skills .modal__title,
+.modal__dialog--education .modal__title,
+.modal__dialog--interests .modal__title {
+  color: var(--accent);
+}
+
+.experience + .experience,
+.education + .education {
+  margin-top: 1.35rem;
+}
+
+.experience__role,
+.education__degree {
+  margin: 0 0 0.2rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.experience__meta,
+.education__meta {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.experience__text,
+.education__text {
+  margin: 0;
+}
+
+.pill-list {
+  margin-bottom: 1rem;
+}
+
+.pill-list__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.pill-list__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pill-list__item {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  color: var(--text-strong);
+}
+
+.interests__text {
+  margin: 0;
+}
+
+.progress-banner {
+  margin: 6rem auto 0;
+  padding-inline: 8vw;
+}
+
+.progress-banner__phrase {
+  margin: 0;
+  text-align: center;
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: clamp(3rem, 12vw, 12.5rem); /* up to ~200px */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: #f5b267; /* warm amber against indigo */
+}
+
+.progress-banner__story {
+  max-width: 46rem;
+  margin: 1.5rem auto 0;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.progress-banner__word {
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+.overshare {
+  max-width: 46rem;
+  margin: 3.5rem auto 0;
+  padding-inline: 8vw;
+  text-align: center;
+}
+
+.overshare__eyebrow {
+  margin: 0 0 0.35rem;
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+}
+
+.overshare__text {
+  margin: 0;
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: #f5b267;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+.overshare__note {
+  margin: 1.2rem 0 0;
+  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+
+@media (max-width: 768px) {
+  .page-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-header__meta {
+    text-align: left;
+  }
+
+  .word-canvas {
+    height: 460px;
+  }
+
+  .word__label {
+    font-size: clamp(1.4rem, 7vw, 2.2rem);
+  }
+
+  .word--work {
+    top: 6%;
+    left: 4%;
+  }
+
+  .word--skills {
+    top: 36%;
+    right: 4%;
+  }
+
+  .word--education {
+    bottom: 7%;
+    left: 6%;
+  }
+
+  .word--interests {
+    bottom: 18%;
+    right: 6%;
+  }
+
+  .modal__dialog {
+    margin: 6vh 1.2rem;
+    padding: 1.4rem 1.35rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding-inline: 6vw;
+  }
+
+  .word-canvas {
+    width: 100%;
+    height: 400px;
+  }
+
+  .word__label {
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+  }
+}
