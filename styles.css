@@ -101,7 +101,6 @@ html.page {
   z-index: 6; /* highest layer, but placed in gaps and follows scroll */
 }
 
-
 .tech-cloud__badge {
   position: absolute;
   display: inline-flex;
@@ -209,8 +208,10 @@ html.page {
   justify-content: flex-start;
   transform-origin: center;
   transition: transform 180ms ease-out, text-shadow 180ms ease-out,
-    letter-spacing 180ms ease-out;
+    letter-spacing 180ms ease-out, filter 180ms ease-out;
   z-index: 10; /* keep titles above tech icons */
+  cursor: pointer;
+  box-shadow: 10px 9px 2px 0px #4c1325;
 }
 
 .word__label {
@@ -227,14 +228,15 @@ html.page {
   word-break: break-word;
   padding: 0.2rem 0.6rem;
   background-color: var(--accent);
-  border-radius: 0;
   text-decoration: none;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
 }
 
 .word:hover,
 .word:focus-visible {
   transform: scale(1.05);
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
   outline: none;
 }
 
@@ -244,6 +246,7 @@ html.page {
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.22em;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.7);
 }
 
 .word--work {
