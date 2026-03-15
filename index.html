@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio – Offgrid</title>
+    <title>Season Shrestha - Portfolio</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body class="page__body">
     <div class="page__background"></div>
 
@@ -32,6 +33,11 @@
     </header>
 
     <main class="page-main">
+      <section class="hero" aria-label="Introduction">
+        <h2 class="hero__title">Frontend Developer.</h2>
+        <p class="hero__subtitle">Exploring The Web</p>
+      </section>
+
       <section class="word-canvas" aria-label="Portfolio sections">
         <figure class="word-canvas__photo" aria-hidden="true">
           <img class="word-canvas__photo-image" src="./images/me.jpg" alt="" />
@@ -144,6 +150,20 @@
             </svg>
           </span>
 
+          <span class="tech-cloud__badge tech-cloud__badge--sass">
+            <svg class="tech-cloud__icon" viewBox="0 0 48 48">
+              <path
+                d="M6 16c0-5.5 7.7-9.5 18-9.5C34.5 6.5 42 10 42 15c0 3.8-4.6 6-10.4 7.8-1.2.4-1.7.6-1.7 1 0 .4.5.6 1.4 1 1.5.7 4 1.8 4 4.7 0 3.6-3.3 6.5-8.6 6.5-4.8 0-7.9-2.5-7.9-6 0-3 2-4.7 5.3-6.1l1.7-.7c-1-1-1.8-2-1.8-3.5 0-.4.1-.8.2-1.1-6.4-.3-10.4-2.6-10.4-6.1Z"
+                fill="#cc6699"
+              />
+              <path
+                d="M24 12.2c-2.5 0-4.3 1.4-4.3 3.4 0 2.3 2.6 3.4 5.4 3.4.8 0 1.5-.1 2.2-.3.2-.3.3-.7.3-1.1 0-2.3-2-5.4-3.6-5.4Z"
+                fill="#fff"
+                opacity="0.9"
+              />
+            </svg>
+          </span>
+
           <span class="tech-cloud__badge tech-cloud__badge--github">
             <svg class="tech-cloud__icon" viewBox="0 0 48 48">
               <circle cx="24" cy="24" r="20" fill="#0c0c12" />
@@ -201,65 +221,102 @@
         <a href="#modal-education" class="word word--education">
           <span class="word__label">EDUCATION</span>
         </a>
-
-        <a href="#modal-interests" class="word word--interests">
-          <span class="word__label">PERSONAL INTEREST</span>
-        </a>
       </section>
 
-      <section class="progress-banner" aria-label="Ongoing growth statement">
-        <p class="progress-banner__phrase">
-          <span
-            class="progress-banner__word"
-            data-hint="Clarify my long-term direction and voice."
-            >I</span
-          >
-          <span
-            class="progress-banner__word"
-            data-hint="Keep iterating and shipping small improvements."
-            >am</span
-          >
-          <span
-            class="progress-banner__word"
-            data-hint="Stay open to learning from every project."
-            >a</span
-          >
-          <span
-            class="progress-banner__word"
-            data-hint="Practice my craft with more intention and depth."
-            >work</span
-          >
-          <span
-            class="progress-banner__word"
-            data-hint="Refine my process and decision-making."
-            >in</span
-          >
-          <span
-            class="progress-banner__word"
-            data-hint="Celebrate growth over perfection."
-            >progress</span
-          >
-        </p>
-
-        <p class="progress-banner__story">
-          This site is being built in the open, at a fast pace, on purpose.
-          Instead of overthinking every pixel, I am shipping small slices,
-          learning from them, and then iterating. I moved from Nepal to the UK
-          and it took a long time to feel like I belonged here – that same
-          persistence now shows up in how I design, code, and grow this space.
-          It will keep changing as I do.
+      <section class="experience-intro" aria-label="Key highlights">
+        <h2 class="experience-intro__title">Key highlights</h2>
+        <p class="experience-intro__tagline">
+          A few roles that shaped how I build, and ship products.
         </p>
       </section>
 
-      <section class="overshare" aria-label="Information nobody asked for">
-        <p class="overshare__eyebrow">information nobody asked for</p>
-        <p class="overshare__text">
-          I was Mostly the first one to be in the office.
+      <section class="experience-highlight" aria-label="Traveality Corporation">
+        <p class="experience-highlight__eyebrow">Work experience</p>
+        <h2 class="experience-highlight__title">Traveality Corporation</h2>
+        <p class="experience-highlight__dates">2022 — Present</p>
+        <p class="experience-highlight__role">
+          Frontend Developer · Led the Property Management System (PMS)
+          frontend, building its React codebase with
+          <strong>MUI</strong> and <strong>Refine</strong>.
         </p>
-        <p class="overshare__note">
-          Not because I&apos;m a workaholic &mdash; we had full-on chair wars
-          and I refused to lose.
+        <div class="experience-highlight__story">
+          <p class="experience-highlight__story-text">
+            First time owning a codebase end‑to‑end. I started this PMS frontend
+            feeling like an imposter, but kept shipping, refactoring, and
+            improving. Two years later, the same foundation is still in
+            production and a bigger team is building on top of it.
+          </p>
+        </div>
+      </section>
+
+      <section class="experience-highlight" aria-label="Infodevelopers Pvt Ltd">
+        <p class="experience-highlight__eyebrow">Work experience</p>
+        <h2 class="experience-highlight__title">Infodevelopers Pvt Ltd</h2>
+        <p class="experience-highlight__dates">2017 — 2022</p>
+        <p class="experience-highlight__role">
+          Frontend Developer · Grew from junior to mid-level. Built the
+          corporate site with <strong>Vue</strong> and a
+          <strong>Laravel</strong> backend, then joined the React team to ship
+          modules on the <strong>Mutual Fund</strong> project.
         </p>
+        <div class="experience-highlight__story">
+          <p class="experience-highlight__story-text">
+            On the Mutual Fund project I focused on delivering modules on time
+            and pairing with senior developers. That collaboration was crucial
+            to how I learned to ship reliably and level up my craft.
+          </p>
+        </div>
+      </section>
+
+      <section class="experience-highlight" aria-label="Ultrabyte Pvt Ltd">
+        <p class="experience-highlight__eyebrow">Earlier experience</p>
+        <h2 class="experience-highlight__title">Ultrabyte Pvt Ltd</h2>
+        <p class="experience-highlight__dates">Internship</p>
+        <p class="experience-highlight__role">
+          Frontend Intern · Assisted senior developers in building websites for
+          consultancies, focusing on implementing designs and learning team
+          workflows.
+        </p>
+      </section>
+
+      <section class="contact" aria-label="Contact">
+        <h2 class="contact__title">Contact</h2>
+        <p class="contact__tagline">Let&apos;s build something together.</p>
+        <ul class="contact__list">
+          <li class="contact__item">
+            <a
+              href="mailto:you@example.com"
+              class="contact__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Email
+            </a>
+          </li>
+          <li class="contact__item">
+            <a
+              href="https://github.com/your-username"
+              class="contact__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </li>
+          <li class="contact__item">
+            <a
+              href="https://www.linkedin.com/in/your-handle"
+              class="contact__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li class="contact__item">
+            <span class="contact__text">Phone: +44 0000 000000</span>
+          </li>
+        </ul>
       </section>
     </main>
 
@@ -286,6 +343,40 @@
           >
         </header>
         <div class="modal__body">
+          <article class="experience">
+            <h3 class="experience__role">Frontend Developer</h3>
+            <p class="experience__meta">
+              Traveality Corporation · 2022 — Present
+            </p>
+            <p class="experience__text">
+              Main role leading the frontend of a Property Management System
+              (PMS). Built the codebase from the ground up using
+              <strong>MUI</strong> and <strong>Refine</strong> (React
+              framework). Responsible for leading the overall frontend
+              architecture and delivery.
+            </p>
+          </article>
+
+          <article class="experience">
+            <h3 class="experience__role">Frontend Developer (Junior → Mid)</h3>
+            <p class="experience__meta">Infodevelopers Pvt Ltd · 2017 — 2022</p>
+            <p class="experience__text">
+              Built the corporate site with Vue and Laravel (backend). Joined
+              the React team and developed the Mutual Fund project; responsible
+              for shipping modules and working closely with senior developers to
+              deliver and learn.
+            </p>
+          </article>
+
+          <article class="experience">
+            <h3 class="experience__role">Frontend Intern</h3>
+            <p class="experience__meta">Ultrabyte Pvt Ltd · Internship</p>
+            <p class="experience__text">
+              Assisted senior developers in building websites for consultancies,
+              focusing on frontend implementation and learning team workflows.
+            </p>
+          </article>
+
           <article class="experience">
             <h3 class="experience__role">Senior Frontend Developer</h3>
             <p class="experience__meta">Offgrid Studio · 2022 — Present</p>
@@ -371,43 +462,6 @@
               digital product strategy.
             </p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PERSONAL INTEREST MODAL -->
-    <section
-      id="modal-interests"
-      class="modal"
-      aria-labelledby="modal-interests-title"
-      aria-modal="true"
-      role="dialog"
-    >
-      <div class="modal__backdrop">
-        <a
-          href="#!"
-          class="modal__clickout"
-          aria-label="Close personal interests"
-        ></a>
-      </div>
-      <div class="modal__dialog modal__dialog--interests">
-        <header class="modal__header">
-          <h2 id="modal-interests-title" class="modal__title">
-            Personal Interest
-          </h2>
-          <a
-            href="#!"
-            class="modal__close"
-            aria-label="Close personal interests"
-            >×</a
-          >
-        </header>
-        <div class="modal__body">
-          <p class="interests__text">
-            Curious about cities, typography, photography, and slow travel.
-            Often found sketching layouts in a notebook or exploring new café
-            interiors.
-          </p>
         </div>
       </div>
     </section>

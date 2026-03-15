@@ -4,7 +4,7 @@
 
   window.addEventListener("scroll", function () {
     var scrollY = window.scrollY || window.pageYOffset || 0;
-    var fadeFactor = Math.min(1, scrollY / 400);
+    var fadeFactor = 1 - Math.min(1, scrollY / 1200);
 
     techBadges.forEach(function (badge, index) {
       var direction = index % 2 === 0 ? -1 : 1;
