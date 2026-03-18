@@ -284,20 +284,21 @@ html.page {
 }
 
 .word--work {
-  top: 8%;
-  left: 2%;
+  /* Move closer to the centered photo in the hero canvas */
+  top: 16%;
+  left: 18%;
   transform: rotate(-7deg);
 }
 
 .word--skills {
-  top: 35%;
-  right: 4%;
+  top: 41%;
+  right: 16%;
   transform: rotate(6deg);
 }
 
 .word--education {
-  bottom: 6%;
-  left: 8%;
+  bottom: 18%;
+  left: 18%;
   transform: rotate(4deg);
 }
 
@@ -643,6 +644,10 @@ html.page {
   color: var(--text-muted);
 }
 
+.experience-highlight__story-text + .experience-highlight__story-text {
+  margin-top: 0.9rem;
+}
+
 .contact {
   max-width: 46rem;
   margin: 4rem auto 0;
@@ -741,18 +746,18 @@ html.page {
   }
 
   .word--work {
-    top: 6%;
-    left: 4%;
+    top: 14%;
+    left: 10%;
   }
 
   .word--skills {
-    top: 36%;
-    right: 4%;
+    top: 43%;
+    right: 10%;
   }
 
   .word--education {
-    bottom: 7%;
-    left: 6%;
+    bottom: 16%;
+    left: 10%;
   }
 
   .word--interests {
