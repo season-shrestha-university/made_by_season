@@ -48,3 +48,21 @@
   updateTechBadges();
   window.addEventListener("scroll", updateTechBadges, { passive: true });
 })();
+
+(() => {
+  const MODAL_HASHES = new Set([
+    "#modal-work",
+    "#modal-skills",
+    "#modal-education",
+  ]);
+
+  const syncScrollLock = () => {
+    const isModalOpen = MODAL_HASHES.has(window.location.hash);
+    document.documentElement.classList.toggle("no-scroll", isModalOpen);
+    document.body.classList.toggle("no-scroll", isModalOpen);
+  };
+
+  window.addEventListener("hashchange", syncScrollLock);
+  document.addEventListener("DOMContentLoaded", syncScrollLock);
+  syncScrollLock();
+})();
