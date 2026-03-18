@@ -16,3 +16,34 @@
     });
   });
 })();
+
+(function () {
+  var words = document.querySelectorAll(".progress-banner__word[data-hint]");
+  if (!words.length) return;
+
+  var tooltipId = "progress-hint-tooltip";
+  var tooltip = document.createElement("span");
+  tooltip.id = tooltipId;
+  tooltip.className = "progress-banner__hint";
+  tooltip.setAttribute("role", "tooltip");
+  document.body.appendChild(tooltip);
+
+  function showHint(word) {
+    tooltip.textContent = word.getAttribute("data-hint");
+    tooltip.classList.add("progress-banner__hint--visible");
+    word.setAttribute("aria-describedby", tooltipId);
+  }
+
+  function hideHint(word) {
+    tooltip.classList.remove("progress-banner__hint--visible");
+    word.removeAttribute("aria-describedby");
+  }
+
+  words.forEach(function (word) {
+    word.setAttribute("tabindex", "0");
+    word.addEventListener("mouseenter", function () { showHint(word); });
+    word.addEventListener("mouseleave", function () { hideHint(word); });
+    word.addEventListener("focus", function () { showHint(word); });
+    word.addEventListener("blur", function () { hideHint(word); });
+  });
+})();
