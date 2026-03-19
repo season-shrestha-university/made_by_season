@@ -546,6 +546,38 @@ html.page {
 .progress-banner__word {
   display: inline-block;
   margin: 0 0.25em;
+  cursor: default;
+}
+
+.progress-banner__word:hover {
+  color: #fff;
+}
+
+.progress-banner__hint {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--modal-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  max-width: min(40rem, 90vw);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+  z-index: 30;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.progress-banner__hint--visible {
+  opacity: 1;
 }
 
 .overshare {
