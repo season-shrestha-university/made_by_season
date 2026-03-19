@@ -3,6 +3,9 @@
   --page-surface: #11152f;
   --text-strong: #f5f5f7;
   --text-muted: #9a9fb3;
+  --font-display:
+    "Oswald", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   --accent: #7b1e3c; /* burgundy red against indigo */
   --accent-soft: rgba(123, 30, 60, 0.18);
   --modal-bg: #0c0c12;
@@ -24,7 +27,11 @@ html.page {
 .page__body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   background-color: var(--page-bg);
   color: var(--text-strong);
@@ -55,8 +62,7 @@ html.page {
 }
 
 .page-header__name {
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   letter-spacing: 0.04em;
@@ -95,14 +101,13 @@ html.page {
 
 .hero__title {
   margin: 0;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(2.4rem, 7vw, 4rem);
   line-height: 1.02;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #f5b267;
+  color: var(--amber);
   max-width: 18ch;
   margin-inline: auto;
 }
@@ -142,7 +147,9 @@ html.page {
   border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
   opacity: 0;
-  transition: transform 260ms ease-out, opacity 260ms ease-out;
+  transition:
+    transform 260ms ease-out,
+    opacity 260ms ease-out;
 }
 
 .tech-cloud__icon {
@@ -221,7 +228,8 @@ html.page {
   overflow: hidden;
   background-color: var(--page-surface);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18),
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.18),
     0 0 0 1px rgba(255, 255, 255, 0.65);
   z-index: 1;
 }
@@ -241,16 +249,18 @@ html.page {
   align-items: center;
   justify-content: flex-start;
   transform-origin: center;
-  transition: transform 180ms ease-out, text-shadow 180ms ease-out,
-    letter-spacing 180ms ease-out, filter 180ms ease-out;
+  transition:
+    transform 180ms ease-out,
+    text-shadow 180ms ease-out,
+    letter-spacing 180ms ease-out,
+    filter 180ms ease-out;
   z-index: 10; /* keep titles above tech icons */
   cursor: pointer;
   box-shadow: 10px 9px 2px 0px #4c1325;
 }
 
 .word__label {
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: 0.02em;
   font-size: clamp(1.6rem, 4.2vw, 2.6rem);
@@ -302,12 +312,6 @@ html.page {
   transform: rotate(4deg);
 }
 
-.word--interests {
-  bottom: 14%;
-  right: 14%;
-  transform: rotate(-9deg);
-}
-
 .modal {
   position: fixed;
   inset: 0;
@@ -345,13 +349,16 @@ html.page {
   border: none;
   border-top: 3px solid var(--amber);
   padding: 2.25rem 2rem 2rem;
-  box-shadow: 10px 9px 2px 0px #4c1325, 0 24px 48px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    10px 9px 2px 0px #4c1325,
+    0 24px 48px rgba(0, 0, 0, 0.5);
   transform: translateY(18px) rotate(-1deg);
   opacity: 0;
   max-height: calc(100vh - 8vh);
   overflow-y: auto;
   overflow-x: hidden;
-  transition: transform 340ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  transition:
+    transform 340ms cubic-bezier(0.22, 0.61, 0.36, 1),
     opacity 280ms ease-out;
 }
 
@@ -371,8 +378,7 @@ html.page {
 }
 
 .modal__title {
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -385,20 +391,19 @@ html.page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   border-radius: 0;
   border: none;
-  background-color: transparent;
   color: var(--text-muted);
   text-decoration: none;
-  font-family: "Oswald", system-ui, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 300;
   line-height: 1;
   cursor: pointer;
   padding: 0.25rem 0.35rem;
-  transition: color 160ms ease-out, transform 140ms ease-out;
+  transition:
+    color 160ms ease-out,
+    transform 140ms ease-out;
 }
 
 .modal__close:hover,
@@ -406,7 +411,6 @@ html.page {
   color: var(--amber);
   transform: scale(1.15);
   outline: none;
-  background-color: transparent;
 }
 
 .modal__body {
@@ -417,8 +421,7 @@ html.page {
 
 .modal__dialog--work .modal__title,
 .modal__dialog--skills .modal__title,
-.modal__dialog--education .modal__title,
-.modal__dialog--interests .modal__title {
+.modal__dialog--education .modal__title {
   color: var(--text-strong);
 }
 
@@ -432,7 +435,7 @@ html.page {
 .experience__role,
 .education__degree {
   margin: 0 0 0.25rem;
-  font-family: "Oswald", system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.05rem;
   text-transform: uppercase;
@@ -447,14 +450,6 @@ html.page {
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--amber);
-}
-
-.experience__text,
-.education__text {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--text-muted);
 }
 
 .experience__bullets,
@@ -478,7 +473,7 @@ html.page {
 .pill-list__title {
   margin: 0 0 0.55rem;
   font-size: 0.75rem;
-  font-family: "Oswald", system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -500,109 +495,27 @@ html.page {
   border: 1px solid rgba(123, 30, 60, 0.4);
   background-color: var(--accent-soft);
   font-size: 0.78rem;
-  font-family: "Oswald", system-ui, sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-strong);
 }
 
-.interests__text {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  border-left: 2px solid var(--accent);
-  padding-left: 1rem;
-}
-
-.progress-banner {
-  margin: 6rem auto 0;
-  padding-inline: 8vw;
-}
-
-.progress-banner__phrase {
-  margin: 0;
-  text-align: center;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  font-size: clamp(3rem, 12vw, 12.5rem); /* up to ~200px */
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  line-height: 0.95;
-  color: #f5b267; /* warm amber against indigo */
-  max-width: 9ch;
-  margin-inline: auto;
-}
-
-.progress-banner__story {
+.experience-intro,
+.experience-highlight,
+.contact {
   max-width: 46rem;
-  margin: 1.5rem auto 0;
-  font-size: 1.08rem;
-  line-height: 1.75;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-.progress-banner__word {
-  display: inline-block;
-  margin: 0 0.25em;
-}
-
-.overshare {
-  max-width: 46rem;
-  margin: 3.5rem auto 0;
   padding-inline: 8vw;
   text-align: center;
-}
-
-.overshare__eyebrow {
-  margin: 0 0 0.35rem;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--text-muted);
-}
-
-.overshare__text {
-  margin: 0;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  font-weight: 600;
-  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.1;
-  color: #f5b267;
-  text-decoration: underline;
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.2em;
-}
-
-.overshare__note {
-  margin: 1.2rem 0 0;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  font-weight: 500;
-  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 1.15;
-  color: var(--text-strong);
 }
 
 .experience-highlight {
-  max-width: 46rem;
   margin: 3.5rem auto 0;
-  padding-inline: 8vw;
-  text-align: center;
 }
 
 .experience-highlight__eyebrow {
   margin: 0 0 0.35rem;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -611,14 +524,13 @@ html.page {
 
 .experience-highlight__title {
   margin: 0;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.6rem, 3.4vw, 2.3rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1.1;
-  color: #f5b267;
+  color: var(--amber);
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.2em;
@@ -666,16 +578,12 @@ html.page {
 }
 
 .contact {
-  max-width: 46rem;
   margin: 4rem auto 0;
-  padding-inline: 8vw;
-  text-align: center;
 }
 
 .contact__title {
   margin: 0 0 0.4rem;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.6rem, 3.2vw, 2.2rem);
   letter-spacing: 0.14em;
@@ -705,8 +613,7 @@ html.page {
 
 .contact__link,
 .contact__text {
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -721,16 +628,12 @@ html.page {
 }
 
 .experience-intro {
-  max-width: 46rem;
   margin: 4rem auto 0;
-  padding-inline: 8vw;
-  text-align: center;
 }
 
 .experience-intro__title {
   margin: 0 0 0.4rem;
-  font-family: "Oswald", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.6rem, 3.2vw, 2.2rem);
   letter-spacing: 0.14em;
@@ -785,15 +688,12 @@ body.no-scroll {
     left: 10%;
   }
 
-  .word--interests {
-    bottom: 18%;
-    right: 6%;
-  }
-
   .modal__dialog {
     margin: 4vh 0.75rem;
     padding: 1.6rem 1.25rem 1.4rem;
-    box-shadow: 6px 6px 2px 0px #4c1325, 0 16px 32px rgba(0, 0, 0, 0.5);
+    box-shadow:
+      6px 6px 2px 0px #4c1325,
+      0 16px 32px rgba(0, 0, 0, 0.5);
   }
 }
 
